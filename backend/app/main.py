@@ -8,7 +8,7 @@ from sqlalchemy import select
 from . import models
 from .db import SessionLocal, init_schema
 from .problems import problem, register_handlers
-from .routers import auth, series
+from .routers import auth, measurements, sensors, series
 from .security import hash_password
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -58,3 +58,5 @@ def health():
 
 app.include_router(auth.router)
 app.include_router(series.router)
+app.include_router(sensors.router)
+app.include_router(measurements.router)
