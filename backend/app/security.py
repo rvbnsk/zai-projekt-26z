@@ -31,8 +31,8 @@ def verify_password(password_hash: str, password: str) -> bool:
 
 
 def new_secret() -> str:
-    """Random token or API key, 43 characters."""
-    return secrets.token_urlsafe(32)
+    """Random token or API key, 64 hex characters (never starts with '-', safe as a CLI argument)."""
+    return secrets.token_hex(32)
 
 
 def sha256(value: str) -> str:
